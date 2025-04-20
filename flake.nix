@@ -32,7 +32,7 @@
         )).config.build;
     in {
       devShells.default = pkgs.mkShell {
-        nativeBuildInputs = [toolchain] ++ [pkgs.qemu];
+        nativeBuildInputs = [toolchain] ++ (with pkgs; [gdb qemu]);
       };
       formatter = treefmt.wrapper;
     });

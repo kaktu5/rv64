@@ -3,8 +3,9 @@
 
 mod boot;
 mod drivers;
+mod interrupts;
 
-use crate::drivers::virt_uart;
+pub use crate::drivers::virt_uart;
 use core::{
     // arch::asm,
     panic::PanicInfo,
@@ -12,7 +13,7 @@ use core::{
 };
 
 #[unsafe(no_mangle)]
-pub extern "C" fn main() -> ! {
+extern "C" fn main() -> ! {
     println!("Hello, world!");
     loop {
         if let Some(byte) = virt_uart::get() {
