@@ -1,1 +1,2 @@
 - https://osblog.stephenmarz.com
+- https://popovicu.com/posts/risc-v-sbi-and-full-boot-process
