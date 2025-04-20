@@ -4,6 +4,7 @@ use core::{
 };
 
 const UART_TX: *mut u8 = 0x10000000 as *mut u8;
+const UART_RX: *mut u8 = UART_TX;
 
 struct Uart;
 
@@ -17,6 +18,15 @@ impl Write for Uart {
 
 pub fn print(arg: Arguments) {
     Uart.write_fmt(arg).expect("failed to send by UART");
+}
+
+pub fn get() -> Option<u8> {
+    unsafe {
+        if UART_RX.add(5).read_volatile() & 1 == 0 {
+            return None;
+        }
+        Some(UART_RX.add(0).read_volatile())
+    }
 }
 
 #[macro_export]
