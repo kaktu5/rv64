@@ -1,0 +1,21 @@
+[package]
+edition = "2024"
+name = "rv64"
+version = "0.0.0"
+
+[[bin]]
+bench = false
+doctest = false
+name = "rv64"
+path = "src/main.rs"
+test = false
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+codegen-units = 1
+lto = "fat"
+opt-level = 3
+panic = "abort"
+strip = "symbols"

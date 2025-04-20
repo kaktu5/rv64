@@ -1,0 +1,15 @@
+*
+!.cargo/
+!.cargo/config.toml
+!src/
+!src/**
+!.editorconfig
+!.gitignore
+!Cargo.lock
+!Cargo.toml
+!CREDITS.md
+!flake.lock
+!flake.nix
+!LICENSE.md
+!README.md
+!treefmt.nix
